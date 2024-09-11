@@ -18,8 +18,6 @@ html {
 body {
     min-width: 428px;
     font-family: 'Habibi';
-    display: flex;
-    flex-direction: column;
 }
 
 article {
@@ -164,6 +162,10 @@ section > p {
         text-align: left;
     }
 
+    .description {
+        text-align: right;
+    }
+
     nav ul {
         display: flex;
         flex-direction: row;
@@ -183,23 +185,31 @@ section > p {
     .info {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .contact-head, .address {
+        grid-column: 1;
+    }
+
+    .hours-head, .times {
+        grid-column: 2;
+    }
+
+    .contact-head, .hours-head {
+        grid-row: 1;
+    }
+
+    .address, .times {
+        grid-row: 2;
     }
 }
 
 /* ------------------- MEDIA QUERY (large) -------------------------------- */
 @media screen and (min-width: 1280px) {
-    body {
-        display: block;
-    }
-
     header {
         display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-    }
-
-    h1 + .description {
-        grid-column: 1;
+        grid-template-columns: 1fr;
     }
 
     .description {
@@ -208,15 +218,12 @@ section > p {
     }
     
     nav {
-        grid-column: 2;
-        background-color: #06A816;
-        padding: 0;
+        background-color: transparent;
         margin: 0;
-        padding: 40px;
-    }
-
-    nav ul li {
-        display: inline;
+        padding: 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .fruit-items {
@@ -229,15 +236,32 @@ section > p {
 
     .info {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
     }
 
+    .contact-head {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .address {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .hours-head {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .times {
+        grid-column: 4;
+        grid-row: 1;
+    }
 }
 
 /* ------------------- MEDIA QUERY (xl) ----------------------------------- */
 @media screen and (min-width: 1440px) {
-
-
-
     .fruit-items {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
